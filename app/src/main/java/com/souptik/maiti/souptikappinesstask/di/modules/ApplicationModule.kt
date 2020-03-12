@@ -33,9 +33,6 @@ class ApplicationModule(private val application: AppinessApplication) {
     fun provideRxSchedulerProviders(): RxSchedulerProviders = RxSchedulerProviders()
 
     @Provides
-    fun provideNetworkAvailableInterceptor(): NetworkAvailableInterceptor = NetworkAvailableInterceptor(context = application)
-
-    @Provides
     @Singleton
     fun provideNetworkService(): NetworkService =
         Networking.create(

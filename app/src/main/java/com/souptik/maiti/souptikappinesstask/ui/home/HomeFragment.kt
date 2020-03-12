@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.souptik.maiti.souptikappinesstask.R
 import com.souptik.maiti.souptikappinesstask.di.components.FragmentComponent
 import com.souptik.maiti.souptikappinesstask.ui.base.BaseFragment
+import com.souptik.maiti.souptikappinesstask.utils.Toaster
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
@@ -53,6 +54,12 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
             if(list!= null){
                 var sortedList = list.sortedBy { it.title.toLowerCase() }
                 itemAdapter.appendData(sortedList)
+            }
+        })
+
+        viewModel.error.observe(this, Observer {
+            it?.run {
+                Toaster.showLong(context!!, this)
             }
         })
     }

@@ -39,7 +39,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
         })
     }
 
-    fun showMessage(message: String) = Toaster.show(applicationContext, message)
+    fun showMessage(message: String) = Toaster.showShort(applicationContext, message)
 
     fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
 

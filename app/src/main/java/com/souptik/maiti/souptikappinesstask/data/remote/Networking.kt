@@ -20,15 +20,16 @@ object Networking {
             .readTimeout(NETWORK_TIME_OUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_TIME_OUT, TimeUnit.SECONDS)
             .addInterceptor(interceptor)
-            .addInterceptor(HttpLoggingInterceptor()
-                .apply {
-                    level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-                    else HttpLoggingInterceptor.Level.NONE
-                })
+            //.addInterceptor(HttpLoggingInterceptor()
+            //    .apply {
+            //        level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+            //        else HttpLoggingInterceptor.Level.NONE
+            //    })
             .build()
 
         return Retrofit.Builder()
             .baseUrl(baseUrl)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
