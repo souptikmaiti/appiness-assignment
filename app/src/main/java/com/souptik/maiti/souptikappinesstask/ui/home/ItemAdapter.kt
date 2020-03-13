@@ -28,7 +28,7 @@ class ItemAdapter(val itemList: ArrayList<ItemResponse> ): RecyclerView.Adapter<
             itemView.tv_title.text = itemResponse.title
             itemView.tv_by.text = itemResponse.by
             itemView.tv_country.text = itemResponse.country
-            itemView.tv_state.text = itemResponse.state
+            itemView.tv_backers.text = itemResponse.num_backers
         }
     }
 
