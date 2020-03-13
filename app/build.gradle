@@ -28,6 +28,15 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
 }
 
 dependencies {
@@ -42,7 +51,7 @@ dependencies {
     implementation "com.google.android.material:material:1.1.0"
 
     // ViewModel and LiveData
-    def lifecycle_version = '2.0.0'
+    def lifecycle_version = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -69,5 +78,16 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    //Expresso
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+
+    // androidx.test
+    def androidx_test = "1.1.0"
+    androidTestImplementation "androidx.test:runner:$androidx_test"
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$androidx_test"
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    testImplementation 'org.hamcrest:hamcrest-library:1.3'
 }
